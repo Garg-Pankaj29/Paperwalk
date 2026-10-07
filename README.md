@@ -145,7 +145,7 @@ Paperwalk/
 ### 1. Clone & Set Up Python Environment
 
 ```bash
-git clone YOUR_GITHUB_REPO_URL
+git clone https://github.com/Garg-Pankaj29/Paperwalk.git
 cd Paperwalk
 
 python3 -m venv .venv
@@ -245,38 +245,9 @@ Instead of keeping developers tied to their terminal or desk, Paperwalk directly
 
 ---
 
-## Demo & Screenshots
+## Demo Video
 
-### Demo Links
-- [Demo Video](YOUR_DEMO_URL)
-- [GitHub Repository](YOUR_GITHUB_REPO_URL)
-
-### Interface Walkthrough
-
-```
-[ Screenshot 1: Paperwalk Home Screen ]
-Select walk duration, environment, and personal intention.
-```
-
-```
-[ Screenshot 2: Generated Card #1 ]
-Printable A4 layout with title, mission, observation lines, drawing box, and reflection.
-```
-
-```
-[ Screenshot 3: Completed Physical Card ]
-Filled out by hand with pen during an outdoor walk.
-```
-
-```
-[ Screenshot 4: "I'm Back" Upload Section ]
-Upload interface with image preview and local Gemma vision status.
-```
-
-```
-[ Screenshot 5: Adapted Card #2 ]
-Next walking card adapted to the user's previous observations and inferred preferences.
-```
+- [Watch Demo Video](https://drive.google.com/file/d/1SrSOM8q2zxY1HUdKN_Cdqg91DctMvvO0/view?usp=sharing)
 
 ---
 
