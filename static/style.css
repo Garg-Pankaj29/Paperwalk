@@ -1,0 +1,56 @@
+:root{--paper:#f6f1e6;--ink:#26302a;--moss:#3f5b45;--line:#b9b3a3;--soft:#6b7468}
+*{box-sizing:border-box}
+body{margin:0;background:#e9e4d6;color:var(--ink);font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif}
+.eyebrow,.brand,.label,.meta,.toolbar,button,.chip span{font-family:ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.12em}
+.home{min-height:100vh;display:grid;place-items:center;padding:24px}
+.intro{width:min(560px,100%);background:var(--paper);padding:48px 44px;border-radius:3px;box-shadow:0 1px 0 #fff inset,0 12px 30px rgba(40,40,30,.15)}
+@media(max-width:500px){.intro{padding:32px 24px}}
+.eyebrow{font-size:12px;color:var(--moss);margin:0 0 14px}
+h1{font-size:44px;line-height:1.05;margin:0 0 12px;font-weight:600}
+.lede{color:var(--soft);font-size:18px;line-height:1.5;margin:0 0 28px}
+fieldset{border:0;padding:0;margin:0 0 22px}
+legend{font-size:13px;color:var(--soft);margin-bottom:8px;padding:0}
+.chip{display:inline-block;margin:0 8px 8px 0}
+.chip input{position:absolute;opacity:0}
+.chip span{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:2px;font-size:13px;letter-spacing:.06em;cursor:pointer}
+.chip input:checked+span{background:var(--moss);color:#fff;border-color:var(--moss)}
+.chip input:focus-visible+span{outline:2px solid var(--moss);outline-offset:2px}
+.goal{display:block;font-size:15px;color:var(--soft);margin-bottom:26px}
+.goal em{opacity:.7}
+.goal input{display:block;width:100%;margin-top:8px;padding:10px 2px;border:0;border-bottom:1px solid var(--line);background:transparent;font:inherit;color:var(--ink)}
+.goal input:focus{outline:0;border-color:var(--moss)}
+button{background:var(--moss);color:#fff;border:0;padding:14px 22px;font-size:13px;cursor:pointer;border-radius:2px}
+button:disabled{opacity:.6;cursor:wait}
+.wait{font-size:14px;color:var(--soft);margin-top:14px}
+.cardpage{padding:20px 0 60px}
+.toolbar{display:flex;gap:16px;align-items:center;justify-content:center;font-size:12px;margin-bottom:18px}
+.toolbar a{color:var(--moss);text-decoration:none}
+.warn{color:#8a5a1f}
+.sheet{position:relative;width:210mm;height:297mm;margin:0 auto;background:var(--paper);padding:16mm 18mm;box-shadow:0 12px 30px rgba(40,40,30,.18);display:flex;flex-direction:column}
+.sheet header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.brand{font-size:12px;font-weight:700}.meta{font-size:10px;color:var(--soft)}
+.mission{margin:8mm 0 4mm;padding-left:5mm;border-left:3px solid var(--moss)}
+.label{font-size:10px;color:var(--moss)}
+.mission h2{margin:4px 0 6px;font-size:24px}
+.mission p{margin:0 0 6px;font-size:15px;line-height:1.45}
+.mission .small{font-size:12px;color:var(--soft);font-style:italic}
+.qs{list-style:none;counter-reset:q;margin:0;padding:0;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.qs li{counter-increment:q;font-size:14px}
+.qs li>span{display:block;margin-bottom:8px}
+.qs li>span::before{content:counter(q) ". ";font-weight:700}
+.line{border-bottom:1px solid var(--line);height:11mm}
+.box{height:60mm;border:1.5px solid var(--ink);border-radius:2px;margin-top:2mm}
+.circles{display:flex;gap:24px;margin:6px 0 12px;font-size:15px;flex-wrap:wrap}
+.circles b{font-weight:400}
+.upload-area{display:block;border:2px dashed var(--line);border-radius:4px;padding:32px;text-align:center;cursor:pointer;margin-bottom:24px;background:rgba(255,255,255,0.4);transition:border-color 0.2s}
+.upload-area:hover{border-color:var(--moss)}
+.upload-icon{font-size:24px;margin-bottom:8px;display:inline-block}
+#photo-preview{max-width:100%;max-height:300px;border-radius:2px;display:block;margin:0 auto}
+.sheet footer{margin-top:5mm;font-size:10px;color:var(--soft);text-align:center;font-family:ui-monospace,monospace}
+/* corner marks: later used to find/straighten the card in a photo */
+.corner{position:absolute;width:7mm;height:7mm;border:0 solid var(--ink)}
+.tl{top:5mm;left:5mm;border-top-width:2px;border-left-width:2px}.tr{top:5mm;right:5mm;border-top-width:2px;border-right-width:2px}
+.bl{bottom:5mm;left:5mm;border-bottom-width:2px;border-left-width:2px}.br{bottom:5mm;right:5mm;border-bottom-width:2px;border-right-width:2px}
+@page{size:A4;margin:0}
+@media print{body{background:#fff}.no-print{display:none!important}.cardpage{padding:0}.sheet{box-shadow:none;margin:0}
+ *{-webkit-print-color-adjust:exact;print-color-adjust:exact}}

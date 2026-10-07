@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paperwalk - I'm Back</title><link rel="stylesheet" href="/static/style.css">
+</head><body class="home">
+
+<div class="intro">
+  <div class="eyebrow">PAPERWALK</div>
+  {% if not card.uploaded %}
+  <h1 style="margin-top:0">I'm Back</h1>
+  <p class="lede">Your walk is over. Upload your completed card and Paperwalk will create your next walk.</p>
+  <form method="post" action="/adapt/{{ card.id }}" enctype="multipart/form-data" id="upload-form">
+    
+    <label class="upload-area" id="drop-area">
+      <input type="file" name="photo" id="photo-input" accept="image/jpeg, image/png, image/jpg" required hidden>
+      <div id="upload-state-ready">
+        <span class="upload-icon">📷</span><br>
+        <span>Tap to take a photo or choose file</span>
+      </div>
+      <img id="photo-preview" hidden alt="Preview">
+    </label>
+
+    <button type="submit" id="adapt-btn" disabled>Read My Walk</button>
+    <p id="adapt-wait" class="wait" hidden>Reading your walk locally... (can take a minute)</p>
+  </form>
+  <p class="wait" style="font-size:12px; margin-top:24px;">Your completed card is interpreted locally by Gemma. No images are sent to the cloud.</p>
+  <script>
+    const photoInput = document.getElementById('photo-input');
+    const preview = document.getElementById('photo-preview');
+    const readyState = document.getElementById('upload-state-ready');
+    const adaptBtn = document.getElementById('adapt-btn');
+    const waitMsg = document.getElementById('adapt-wait');
+
+    photoInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        preview.src = url;
+        preview.hidden = false;
+        readyState.hidden = true;
+        adaptBtn.disabled = false;
+      }
+    });
+
+    document.getElementById('upload-form').addEventListener('submit', () => {
+      adaptBtn.disabled = true;
+      adaptBtn.textContent = 'Adapting...';
+      waitMsg.hidden = false;
+    });
+  </script>
+  {% else %}
+  <h1 style="margin-top:0">Your next walk is ready</h1>
+  <p class="lede" style="margin-bottom:0;">You've successfully completed and uploaded this card.</p>
+  <br>
+  <button onclick="window.location.href='/'">Start a New Card</button>
+  {% endif %}
+</div>
+
+</body></html>

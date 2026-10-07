@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paperwalk card {{ card.id }}</title><link rel="stylesheet" href="/static/style.css">
+</head><body class="cardpage">
+<div class="toolbar no-print">
+  <a href="/">← New card</a>
+  <button onclick="window.print()">Print card</button>
+  <button onclick="window.location.href='/back/{{ card.id }}'">I'm Back →</button>
+  {% if card.source == 'fallback' %}<span class="warn" title="{{ card.error }}">Gemma unavailable — showing a built-in card</span>{% endif %}
+</div>
+{% set c = card.content %}
+<article class="sheet">
+  <header>
+    <div class="brand">PAPERWALK — FIELD CARD</div>
+    <div class="meta">№ {{ card.card_number }} · {{ card.minutes }} min · {{ card.environment }} · {{ card.id }}</div>
+  </header>
+  <section class="mission">
+    <div class="label">Today's mission</div>
+    <h2>{{ c.title }}</h2>
+    <p>{{ c.mission }}</p>
+    <p class="small">{{ c.before_you_go }}</p>
+  </section>
+  <ol class="qs">
+    <li><span>{{ c.q_noticed }}</span><div class="line"></div><div class="line"></div></li>
+    <li><span>{{ c.q_surprising }}</span><div class="line"></div><div class="line"></div></li>
+    <li><span>{{ c.q_almost_missed }}</span><div class="line"></div><div class="line"></div></li>
+    <li><span>{{ c.draw_prompt }}</span><div class="box"></div></li>
+    <li><span>{{ c.circle_prompt }}</span>
+      <div class="circles">{% for o in c.circle_options %}<b>○ {{ o }}</b>{% endfor %}</div></li>
+    <li><span>{{ c.q_next_time }}</span><div class="line"></div><div class="line"></div></li>
+  </ol>
+  <footer>Leave your phone at home. Come back with this card.</footer>
+  <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+</article>
+</body></html>

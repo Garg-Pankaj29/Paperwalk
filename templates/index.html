@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paperwalk</title><link rel="stylesheet" href="/static/style.css">
+</head><body class="home">
+<main class="intro">
+  <p class="eyebrow">PAPERWALK</p>
+  <h1>A walk, on paper.</h1>
+  <p class="lede">Tell us how long you have. A local AI writes you a card. Print it, leave your phone, go outside.</p>
+  <form method="post" action="/generate" id="f">
+    <fieldset><legend>How long?</legend>
+      <label class="chip"><input type="radio" name="minutes" value="20" checked><span>20 min</span></label>
+      <label class="chip"><input type="radio" name="minutes" value="40"><span>40 min</span></label>
+      <label class="chip"><input type="radio" name="minutes" value="60"><span>60 min</span></label>
+    </fieldset>
+    <fieldset><legend>Where?</legend>
+      <label class="chip"><input type="radio" name="environment" value="park" checked><span>Park</span></label>
+      <label class="chip"><input type="radio" name="environment" value="campus"><span>Campus</span></label>
+      <label class="chip"><input type="radio" name="environment" value="neighborhood"><span>Neighborhood</span></label>
+    </fieldset>
+    <label class="goal">Anything you want from this walk? <em>(optional)</em>
+      <input type="text" name="goal" maxlength="140" placeholder="e.g. clear my head before exams">
+    </label>
+    <button type="submit" id="go">Generate my card</button>
+    <p class="wait" id="wait" hidden>Your card is being written on this machine. Usually 10–40 seconds.</p>
+  </form>
+</main>
+<script>document.getElementById('f').addEventListener('submit',()=>{go.disabled=true;go.textContent='Writing…';wait.hidden=false;});</script>
+</body></html>
